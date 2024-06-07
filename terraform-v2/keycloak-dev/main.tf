@@ -123,19 +123,6 @@ module "github" {
   sub_to_username     = true
 }
 
-module "digitalcredential" {
-  source                          = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-digitalcredential"
-  keycloak_url                    = var.keycloak_url
-  realm_name                      = local.digitalcredential_realm_name
-  standard_realm_name             = local.standard_realm_name
-  digitalcredential_client_id     = var.digitalcredential_client_id
-  digitalcredential_client_secret = var.digitalcredential_client_secret
-  authorization_url               = "https://vc-authn-oidc-dev.apps.silver.devops.gov.bc.ca/authorize"
-  token_url                       = "https://vc-authn-oidc-dev.apps.silver.devops.gov.bc.ca/token"
-  sub_to_username                 = true
-  sandbox_client_redirect_uri     = local.sandbox_client_redirect_uri
-}
-
 module "master_idir_link" {
   source           = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
